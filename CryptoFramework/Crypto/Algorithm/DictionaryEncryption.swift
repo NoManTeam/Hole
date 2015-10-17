@@ -40,9 +40,9 @@ public class DictionaryEncryption {
 	
 	///将密文按照字典反映射为明文
 	///
-	///- Parameter plainText: 待加密的明文
+	///- Parameter plainText: 待加密的明文
 	///- Parameter encDictionary: 映射用的字典（与加密用的字典相同）
-	///- Returns: 加密后的密文（均为可打印字符）
+	///- Returns: 解密后的明文
 	public static func dictionaryDecrypt(cipherText: NSString, encDictionary: Dictionary<String, String>) -> String
 	{
 		var plainText: String = ""

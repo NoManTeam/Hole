@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CommonCrypto
 
 ///信息摘要算法集，用于验证数据完整性、变长字符串转换为定长、数字签名等
 class MessageDigest
@@ -23,4 +24,5 @@ class MessageDigest
 		free(buffer)
 		return md5String as String
 	}
+	// TODO: Add more algorithm such as sha1、sha256
 }
