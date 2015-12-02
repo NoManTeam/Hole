@@ -397,7 +397,7 @@ section.section {
 }
 
 h1 a.navbar-brand {
-	font-size: 24px;
+	font-size: 15px;
 	color: #fff;
 	font-weight: 900;
 	text-shadow: none;
@@ -1065,7 +1065,8 @@ Media queries
 @media (max-width: 767px) {
 
 	.navbar.navbar-fixed-top {
-		background-color:rgba(0,0,0,1);
+		background-color:rgba(0,0,0,0.5);
+
 	}
 	.navbar .navbar-collapse ul.nav {
 		background-color: #444;
