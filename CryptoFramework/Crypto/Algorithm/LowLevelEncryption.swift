@@ -11,18 +11,14 @@ import Foundation
 ///低级加密算法
 public class LowLevelEncryption {
 	
-	///英文半角符号集
-	public static var engilshSymbols:[Character] =
-		[",", ".", "|", " ", "<", ">", "/", ";",
-		":", "'", "\"", "[", "]", "{", "}", "\\",
-		"(", ")", "_", "-", "=", "+", "*", "&",
-		"^", "%", "$", "#", "@", "!", "~", "`"]
+	///符号集
+	public static let symbols = ".,!?/\\+=-_;:\"'#$%^&*~∙<>(){}[]|®©™℠×÷。，！？、\\；：♬—“”‘’＃￥％＾＆＊～•《》（）｛｝【】…→←↑↓✓✕ "
 	
 	///英文小写字母集
-	public static var englishCharacter:NSString = "abcdefghijklmnopqrstuvwxyz"
+	public static let englishCharacter:String = "abcdefghijklmnopqrstuvwxyz"
 	
 	///英文大写字母集
-	public static var bigEnglishCharacter:NSString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	public static let bigEnglishCharacter:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	
 	///将明文按一定分隔符分隔成多个单元，并按照随机顺序重组的算法
 	///- 明文需要一定长度，打乱才有意义
@@ -31,7 +27,7 @@ public class LowLevelEncryption {
 	///- Parameter plainText: 待加密的明文
 	///- Parameter splitChars: 分隔字符集,决定明文以何种方式分隔，留空则以1个NSString单位长度分割
 	///- Returns: 加密后的密文（均为可打印字符）
-	public static func randomText(plainText:NSString, splitChars:[Character]?) -> String
+	public static func randomText(plainText:NSString, splitChars:String?) -> String
 	{
 		var charSet:[String] = []
 		for (var i = 0; i < plainText.length; ++i)
@@ -50,7 +46,7 @@ public class LowLevelEncryption {
 					let temp = plainText.substringFromIndex(j)
 					let char = NSString(string: temp).substringToIndex(1)
 					var isEqualToUnit = false
-					for unit in splitChars!
+					for unit in splitChars!.characters
 					{
 						if (char == String(unit))
 						{
@@ -98,35 +94,40 @@ public class LowLevelEncryption {
 	///- Parameter plainText: 待加密的明文
 	///- Parameter Shift: 偏移量，不应为零，加解密时的偏移量应互为相反数
 	///- Returns: 加密后的密文（均为可打印字符）
-	public static func caesarCode(plainText: NSString, shift:Int) -> NSString
+	public static func caesarCode(plainText: String, shift:Int) -> String
 	{
-		let source = plainText.UTF8String
-		let eChar = englishCharacter.UTF8String
-		let bEChar = bigEnglishCharacter.UTF8String
-		let cipherText:NSMutableString = ""
-		for(var i = 0; i < plainText.length; ++i)
+		var cipherText = ""
+		for(var i = 0; i < plainText.characters.count; ++i)
 		{
 			var isEChar = false
-			for(var j = 0; j < englishCharacter.length; ++j)
+			for(var j = 0; j < englishCharacter.characters.count; ++j)
 			{
-				if(eChar[j] == source[i])
+				if englishCharacter[englishCharacter.startIndex.advancedBy(j)] == plainText[plainText.startIndex.advancedBy(i)]
 				{
-					let shiftIndex = (shift + j) % 26
-					cipherText.appendFormat("%c", eChar[shiftIndex])
+					var shiftIndex = (shift + j) % 26
+					if(shiftIndex < 0)
+					{
+						shiftIndex += 26
+					}
+					cipherText.append(englishCharacter[englishCharacter.startIndex.advancedBy(shiftIndex)]) //.appendFormat("%c", eChar[shiftIndex])
 					isEChar = true
 					break
 				}
-				else if(bEChar[j] == source[i])
+				else if bigEnglishCharacter[bigEnglishCharacter.startIndex.advancedBy(j)] == plainText[plainText.startIndex.advancedBy(i)]
 				{
-					let shiftIndex = (shift + j) % 26
-					cipherText.appendFormat("%c", bEChar[shiftIndex])
+					var shiftIndex = (shift + j) % 26
+					if(shiftIndex < 0)
+					{
+						shiftIndex += 26
+					}
+					cipherText.append(bigEnglishCharacter[bigEnglishCharacter.startIndex.advancedBy(shiftIndex)]) //Format("%c", bEChar[shiftIndex])
 					isEChar = true
 					break
 				}
 			}
 			if(isEChar == false)
 			{
-				cipherText.appendFormat("%c", source[i])
+				cipherText.append(plainText[plainText.startIndex.advancedBy(i)])
 			}
 		}
 		return cipherText
@@ -155,6 +156,10 @@ public class LowLevelEncryption {
 	public static func base64Decode(cipherText:NSString) -> String?
 	{
 		let sourceData = NSData(base64EncodedString: cipherText as String, options: NSDataBase64DecodingOptions(rawValue: 0))
-		return String(data: sourceData!, encoding: NSUTF8StringEncoding)
+		if(sourceData != nil)
+		{
+			return String(data: sourceData!, encoding: NSUTF8StringEncoding)
+		}
+		return nil
 	}
 }

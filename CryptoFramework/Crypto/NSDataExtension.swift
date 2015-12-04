@@ -41,7 +41,7 @@ extension NSData {
         }
         return s
     }
-    
+	
     public func arrayOfBytes() -> [UInt8] {
         let count = self.length / sizeof(UInt8)
         var bytesArray = [UInt8](count: count, repeatedValue: 0)

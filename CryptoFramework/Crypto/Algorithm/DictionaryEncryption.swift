@@ -17,21 +17,19 @@ public class DictionaryEncryption {
 	///- Parameter plainText: 待加密的明文
 	///- Parameter encDictionary: 映射用的字典
 	///- Returns: 加密后的密文（均为可打印字符）
-	public static func dictionaryEncrypt(plainText: NSString, encDictionary: Dictionary<String, String>) -> String
+	public static func dictionaryEncrypt(plainText: String, encDictionary: Dictionary<String, String>) -> String
 	{
 		var cipherText: String = ""
-		for (var i = 0; i < plainText.length; ++i)
+		for char in plainText.characters
 		{
-			let temp = NSString(string: plainText.substringFromIndex(i))
-			let char = temp.substringToIndex(1)
-			let encChar = encDictionary[char]
+			let encChar = encDictionary[String(char)]
 			if(encChar != nil)
 			{
 				cipherText += encChar!
 			}
 			else
 			{
-				cipherText += char
+				cipherText += String(char)
 			}
 		}
 		return cipherText
@@ -43,34 +41,24 @@ public class DictionaryEncryption {
 	///- Parameter plainText: 待加密的明文
 	///- Parameter encDictionary: 映射用的字典（与加密用的字典相同）
 	///- Returns: 解密后的明文
-	public static func dictionaryDecrypt(cipherText: NSString, encDictionary: Dictionary<String, String>) -> String
+	public static func dictionaryDecrypt(cipherText: String, encDictionary: Dictionary<String, String>) -> String
 	{
 		var plainText: String = ""
-		for (var i = 0; i < cipherText.length; ++i)
+		for char in cipherText.characters
 		{
-			let temp = NSString(string: cipherText.substringFromIndex(i))
-			var char:String
 			var HasKey = false
 			for (key, value) in encDictionary
 			{
-				let valueLength = NSString(string: value).length
-				if(valueLength > temp.length)
-				{
-					continue
-				}
-				char = temp.substringToIndex(valueLength)
-				if(char == value)
+				if(String(char) == value)
 				{
 					plainText += key
 					HasKey = true
-					i += valueLength - 1
 					break
 				}
 			}
 			if(!HasKey)
 			{
-				char = temp.substringToIndex(1)
-				plainText += char
+				plainText += String(char)
 			}
 		}
 		return plainText

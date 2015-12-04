@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932E49501C11A8E100D23659 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E494F1C11A8E100D23659 /* StringExtension.swift */; };
 		93BCC3671BD28127003F6ECE /* Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BCC3661BD28127003F6ECE /* Crypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93BCC3711BD2816E003F6ECE /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC36F1BD2816E003F6ECE /* NSDataExtension.swift */; settings = {ASSET_TAGS = (); }; };
-		93BCC3771BD28196003F6ECE /* DictionaryEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3731BD28196003F6ECE /* DictionaryEncryption.swift */; settings = {ASSET_TAGS = (); }; };
-		93BCC3781BD28196003F6ECE /* EmojiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3741BD28196003F6ECE /* EmojiDictionary.swift */; settings = {ASSET_TAGS = (); }; };
-		93BCC3791BD28196003F6ECE /* LowLevelEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3751BD28196003F6ECE /* LowLevelEncryption.swift */; settings = {ASSET_TAGS = (); }; };
-		93BCC37A1BD28196003F6ECE /* MessageDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3761BD28196003F6ECE /* MessageDigest.swift */; settings = {ASSET_TAGS = (); }; };
-		93BCC37F1BD281B0003F6ECE /* AES_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC37C1BD281B0003F6ECE /* AES_API.swift */; settings = {ASSET_TAGS = (); }; };
-		93BCC3801BD281B0003F6ECE /* NSAESData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC37D1BD281B0003F6ECE /* NSAESData.swift */; settings = {ASSET_TAGS = (); }; };
-		93BCC3811BD281B0003F6ECE /* NSAESString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC37E1BD281B0003F6ECE /* NSAESString.swift */; settings = {ASSET_TAGS = (); }; };
+		93BCC3711BD2816E003F6ECE /* NSDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC36F1BD2816E003F6ECE /* NSDataExtension.swift */; };
+		93BCC3771BD28196003F6ECE /* DictionaryEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3731BD28196003F6ECE /* DictionaryEncryption.swift */; };
+		93BCC3781BD28196003F6ECE /* EmojiDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3741BD28196003F6ECE /* EmojiDictionary.swift */; };
+		93BCC3791BD28196003F6ECE /* LowLevelEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3751BD28196003F6ECE /* LowLevelEncryption.swift */; };
+		93BCC37A1BD28196003F6ECE /* MessageDigest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC3761BD28196003F6ECE /* MessageDigest.swift */; };
+		93BCC37F1BD281B0003F6ECE /* AES_API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC37C1BD281B0003F6ECE /* AES_API.swift */; };
+		93BCC3801BD281B0003F6ECE /* NSAESData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC37D1BD281B0003F6ECE /* NSAESData.swift */; };
+		93BCC3811BD281B0003F6ECE /* NSAESString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCC37E1BD281B0003F6ECE /* NSAESString.swift */; };
 		93BCC3AD1BD28408003F6ECE /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCC3A31BD282E9003F6ECE /* CommonCrypto.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		932E494F1C11A8E100D23659 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Crypto/StringExtension.swift; sourceTree = SOURCE_ROOT; };
 		93BCC3631BD28126003F6ECE /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BCC3661BD28127003F6ECE /* Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
 		93BCC3681BD28127003F6ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				93BCC3721BD28178003F6ECE /* Algorithm */,
 				93BCC36F1BD2816E003F6ECE /* NSDataExtension.swift */,
+				932E494F1C11A8E100D23659 /* StringExtension.swift */,
 				93BCC3661BD28127003F6ECE /* Crypto.h */,
 				93BCC3681BD28127003F6ECE /* Info.plist */,
 			);
@@ -235,6 +238,7 @@
 				93BCC3711BD2816E003F6ECE /* NSDataExtension.swift in Sources */,
 				93BCC3811BD281B0003F6ECE /* NSAESString.swift in Sources */,
 				93BCC3781BD28196003F6ECE /* EmojiDictionary.swift in Sources */,
+				932E49501C11A8E100D23659 /* StringExtension.swift in Sources */,
 				93BCC3771BD28196003F6ECE /* DictionaryEncryption.swift in Sources */,
 				93BCC3801BD281B0003F6ECE /* NSAESData.swift in Sources */,
 				93BCC37A1BD28196003F6ECE /* MessageDigest.swift in Sources */,
@@ -440,6 +444,7 @@
 				93BCC36D1BD28127003F6ECE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		93BCC3A81BD282E9003F6ECE /* Build configuration list for PBXNativeTarget "CommonCrypto" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +453,7 @@
 				93BCC3AA1BD282E9003F6ECE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

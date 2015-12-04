@@ -11,7 +11,6 @@ import Foundation
 
 /**
 AES_256_ECB加密API
-#### 请在Crypto中统一调用解密算法
 
 - Parameter plainText: 要加密的明文
 - Parameter key: 密码（长度任意，会转换为MD5值）
@@ -34,7 +33,6 @@ func aesEncrypt(plainText:NSString, var key:String) -> NSString?
 
 /**
 AES_256_ECB解密API
-#### 请在Crypto中统一调用解密算法
 
 - Parameter plainText: 要解密的密文
 - Parameter key: 密码（长度任意，会转换为MD5值）
