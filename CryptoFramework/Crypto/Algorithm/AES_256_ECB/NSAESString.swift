@@ -24,13 +24,12 @@ class NSAESString:NSObject
 	internal static func aes256_decrypt(CipherText:String, key:NSString) -> NSString?
 	{
 		//转换为2进制Data
-		let data = CipherText.hexStringToData()
-		
+		guard let data = CipherText.hexStringToData() else {return nil}
 		//对数据进行解密
-		let result = data!.aes256_decrypt(key);
+		let result = data.aes256_decrypt(key)
 		if (result != nil && result!.length > 0) {
 			return NSString(data:result!, encoding:NSUTF8StringEncoding)
 		}
-		return nil;
+		return nil
 	}
 }

@@ -68,30 +68,49 @@ public class DictionaryEncryption {
 	///
 	///- Parameter plainText: Json文件绝对路径名
 	///- Returns: 读出的Dictionary
-	public static func getDictionaryFromFile(path: NSString) -> Dictionary<String, String>?
+	public static func dictionaryDecrypt(cipherText: String, encDictionary: Dictionary<String, String>) -> String
 	{
-		let dictionaryRecord = fopen(path.UTF8String, "r")
-		if(dictionaryRecord == nil)
-		{
-			return nil
+		if (encDictionary == morseDictionary){
+			var temp: String = cipherText
+			for (key, value) in encDictionary{
+				guard let range = temp.rangeOfString(value) else {continue}
+				if range.startIndex == value.startIndex{
+					temp.replaceRange(range, with: " " + key + " ")
+				}
+				var srange =  temp.rangeOfString(" " + value)
+				while srange != nil{
+					temp.replaceRange(srange!, with: " " + key + " ")
+					srange = temp.rangeOfString(" " + value)
+				}
+			}
+			var plainText = ""
+			for char in temp.characters{
+				if(char != " "){
+					plainText.append(char)
+				}
+			}
+			return plainText
 		}
-		fseek(dictionaryRecord, 0, SEEK_END)
-		let length = ftell(dictionaryRecord)
-		fseek(dictionaryRecord, 0, SEEK_SET)
-		
-		var buffer: [UInt8] = Array<UInt8>(count: length, repeatedValue: 0)
-		fread(&buffer, 1, length, dictionaryRecord)
-		fclose(dictionaryRecord)
-		
-		let dictionaryData = NSData.withBytes(buffer)
-		do
-		{
-			let encDictionary = try NSJSONSerialization.JSONObjectWithData(dictionaryData, options: .MutableContainers) as? NSDictionary
-			return encDictionary as? Dictionary
-		}
-		catch
-		{
-			return nil
+		else{
+			var plainText: String = ""
+			for char in cipherText.characters
+			{
+				var HasKey = false
+				for (key, value) in encDictionary
+				{
+					if(String(char) == value)
+					{
+						plainText += key
+						HasKey = true
+						break
+					}
+				}
+				if(!HasKey)
+				{
+					plainText += String(char)
+				}
+			}
+			return plainText
 		}
 	}
 	
