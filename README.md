@@ -1,15 +1,15 @@
 # Hole——密语输入法，从源头保障您的隐私安全
-
+⚠️ 此项目已中止
 ###### 本项目仅为密语输入法的开源部分，由于某些原因，密语输入法暂时不能全部开源，若造成不便，请谅解。
 
 ### 密语输入法版本
-当前在售：v1.4.0（该版本因审核问题迟到）  
+当前在售：Discontinue  
 主要内容：新增高度调节，优化键盘按钮布局，修复大量重要bug，确保所有功能正常。  
-详见[App Store](https://appsto.re/cn/RzEw_.i)  
+~~详见[App Store](https://appsto.re/cn/RzEw_.i)~~
 
 ### 密语 web 服务
 无需安装，免费使用的加解密服务  
-[点此立刻使用](https://extens10n.github.io/hole-for-web/)  
+~~[点此立刻使用](https://extens10n.github.io/hole-for-web/)~~
 
 ### 开发计划
 正在开发：密语输入法 v2.0  
